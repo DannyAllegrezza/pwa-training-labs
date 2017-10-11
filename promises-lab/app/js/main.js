@@ -48,8 +48,10 @@ var app = (function() {
 
   function flagChain(country) {
     // TODO 2.2 - use the promise
-    return getImageName(country)
-    .then(logSuccess)
+    return getImageName(country) // returns the promise that contains the image name; ex: 'spain.jpg'
+    .then(fetchFlag) // fetchFlag is passed the image name, uses fetch() to request the image file asynch
+    .then(processFlag) // waits for image to resolve, which returns a response object. if ok, get the blob
+    .then(appendFlag) // waits for blob promise to resolve, creates an image and appends to the DOM
     .catch(logError);
   }
 
