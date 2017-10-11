@@ -54,7 +54,9 @@ var app = (function() {
   }
 
   function spainTest(country) {
-    // TODO - Optional
+    return isSpain(country)
+      .then(returnTrue)
+      .catch(returnFalse);
   }
 
   function allFlags(promiseList) {
