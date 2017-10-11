@@ -20,7 +20,7 @@ var app = (function() {
   function getImageName(country) {
     // TODO 2.1 - create a promise
     country = country.toLowerCase();
-    
+
     var promiseOfImageName = new Promise(function(resolve, reject){
       setTimeout(function() {
         if (country === 'spain' || country === 'chile' || country === 'peru') {
@@ -49,7 +49,8 @@ var app = (function() {
   function flagChain(country) {
     // TODO 2.2 - use the promise
     return getImageName(country)
-    .then(logSuccess, logError);
+    .then(logSuccess)
+    .catch(logError);
   }
 
   function spainTest(country) {
